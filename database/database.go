@@ -9,7 +9,7 @@ import (
 
 var DataBase *gorm.DB
 
-func connectDB()  {
+func ConnectDB()  {
 	var err error
 	DataBase,err = gorm.Open(sqlite.Open("todos.db"))
 
