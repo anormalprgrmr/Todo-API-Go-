@@ -1,6 +1,7 @@
 package database
 
 import (
+	"Todo-API/models"
 	"log"
 
 	"gorm.io/driver/sqlite"
@@ -16,4 +17,6 @@ func ConnectDB()  {
 	if err != nil {
 		log.Fatal("Connecting to db : Failed!")
 	}
+
+	DataBase.AutoMigrate(&models.User{}, &models.Todo{})
 }

@@ -6,8 +6,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-// SetupAuthRoutes initializes authentication routes
 func SetupAuthRoutes(app *fiber.App) {
-    app.Post("/register", handlers.Signup)
+    app.Post("/signup", handlers.Signup)
     app.Post("/login", handlers.Login)
 }
