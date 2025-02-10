@@ -7,11 +7,10 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func SetupTodoRoutes(app *fiber.App) {
-    todoGroup := app.Group("/todos", middlewares.AuthRequired)
+func SetupTodoRoutes(app fiber.Router) {
 
-    todoGroup.Post("/", handlers.CreateTodo)
-    todoGroup.Get("/", handlers.GetTodos)
+    app.Post("/", middlewares.AuthRequired,handlers.CreateTodo)
+    app.Get("/",middlewares.AuthRequired, handlers.GetTodos)
     // todoGroup.Get("/:id", handlers.GetTodoByID)
     // todoGroup.Put("/:id", handlers.UpdateTodo)
     // todoGroup.Delete("/:id", handlers.DeleteTodo)

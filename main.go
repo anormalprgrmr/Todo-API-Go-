@@ -21,8 +21,9 @@ func main(){
 	app.Get("/hello",func (c *fiber.Ctx) error {
 		return c.SendString("Hello ! this is test")
 	})
-	routes.SetupAuthRoutes(app)
-	routes.SetupTodoRoutes(app)
+	
+	routes.SetupAuthRoutes(app.Group("/auth"))
+	routes.SetupTodoRoutes(app.Group("/todo"))
 
 	port := os.Getenv("PORT")
 	if port == "" {
